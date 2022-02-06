@@ -10,5 +10,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@mapbox/glyph-pbf-composite": "0.0.3",
+    "@mapbox/spritezero": "^8.0.0",
+    "fontnik": "^0.6.0",
+    "prettier": "^2.5.1",
+    "yargs": "^17.3.1"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.7.0"
+  }
 }

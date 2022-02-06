@@ -6,10 +6,10 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-landez = "^2.5.0"
-Django = "^4.0.2"
 
 [tool.poetry.dev-dependencies]
+landez = "^2.5.0"
+Django = "^4.0.2"
 pytest = "^5.2"
 ipython = "^8.0.1"
 Pillow = "^9.0.1"

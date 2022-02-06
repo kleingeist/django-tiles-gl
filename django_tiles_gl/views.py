@@ -24,4 +24,3 @@ def metadata(request):
     reader = MBTilesReader('../berlin.mbtiles')
 
     return JsonResponse(reader.metadata())
-
