@@ -17,18 +17,18 @@
     "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t",
     "openmaptiles:version": "3.x"
   },
-  "center": [{{ CENTER_LON }}, {{ CENTER_LAT }}],
-  "zoom": {{ ZOOM }},
+  "center": [0, 0],
+  "zoom": 1,
   "bearing": 0,
   "pitch": 0,
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "{{ VECTOR_SOURCE_URL }}"
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}"
     }
   },
-  "sprite": "{{ SPRITE_BASE_URL }}",
-  "glyphs": "{{ GLYPH_BASE_URL }}/{fontstack}/{range}.pbf",
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
       "id": "background",

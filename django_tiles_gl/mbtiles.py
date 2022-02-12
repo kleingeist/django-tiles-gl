@@ -1,9 +1,11 @@
-from curses import meta
-import sqlite3
 import json
+import sqlite3
+from curses import meta
 
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
+
+from .utils import split_floats
 
 
 class MissingTileError(Exception):
@@ -12,6 +14,7 @@ class MissingTileError(Exception):
 
 class MBTilesNotFoundError(Exception):
     pass
+
 
 class MBTilesInvalid(Exception):
     pass
@@ -22,10 +25,6 @@ def open_mbtiles():
     if not database:
         raise ImproperlyConfigured("The MBTILES_DATABASE setting must not be empty.")
     return MBTiles(str(database))
-
-
-def split_floats(input, sep=","):
-    return (float(val.strip()) for val in input.split(sep))
 
 
 class MBTiles:
@@ -68,18 +67,21 @@ class MBTiles:
         required = ["name", "format"]
         for field in required:
             if field not in metadata:
-                raise MBTilesInvalid(f"Missing required metadata field {field}")
+                raise MBTilesInvalid(f'Missing required metadata field "{field}"')
+
+        if metadata["format"] == "pbf":
+            if "json" not in metadata:
+                raise MBTilesInvalid(f'Missing required metadata field "json"')
 
     def _parse_metadata_bounds(self, metadata):
         if "bounds" in metadata:
             metadata["bounds"] = split_floats(metadata["bounds"])
-    
+
     def _parse_metadata_center(self, metadata):
         if "center" in metadata:
             metadata["center"] = split_floats(metadata["center"])
-    
 
-    def _parse_metdata_zoom(self, metadata):
+    def _parse_metadata_zoom(self, metadata):
         for zoom in ("minzoom", "maxzoom"):
             if zoom in metadata:
                 metadata[zoom] = float(metadata[zoom])
@@ -88,6 +90,7 @@ class MBTiles:
         if "json" in metadata:
             metadata["json"] = json.loads(metadata["json"])
 
+    # FIXME: WHAT SHOULD BE THE DEFAULT?
     def _add_scheme_with_default(self, metadata, default="tms"):
         metadata["scheme"] = metadata.get("scheme", default)
 
