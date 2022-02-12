@@ -13,6 +13,9 @@ Django = "^4.0.2"
 pytest = "^5.2"
 ipython = "^8.0.1"
 Pillow = "^9.0.1"
+black = "^22.1.0"
+isort = "^5.10.1"
+autoflake = "^1.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

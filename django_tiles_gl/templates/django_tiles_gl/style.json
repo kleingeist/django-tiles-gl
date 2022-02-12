@@ -17,8 +17,8 @@
     "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t",
     "openmaptiles:version": "3.x"
   },
-  "center": [0, 0],
-  "zoom": 1,
+  "center": [{{ CENTER_LON }}, {{ CENTER_LAT }}],
+  "zoom": {{ ZOOM }},
   "bearing": 0,
   "pitch": 0,
   "sources": {
@@ -28,7 +28,7 @@
     }
   },
   "sprite": "{{ SPRITE_BASE_URL }}",
-  "glyphs": "{{ GLYPH_BASE_URL }}/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "{{ GLYPH_BASE_URL }}/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
