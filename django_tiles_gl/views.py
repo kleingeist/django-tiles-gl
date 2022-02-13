@@ -14,10 +14,7 @@ from .utils import center_from_bounds
 DEFAULT_ZOOM = 13
 DEFAULT_MINZOOM = 7
 DEFAULT_MAXZOOM = 15
-WORLD_BOUNDS = {
-    "tms": [-85.0511, -180.0, 85.0511, 180.0],  # FIXME!!!!!!
-    "xyz": [-180, -85.05112877980659, 180, 85.0511287798066],
-}
+WORLD_BOUNDS = [-180, -85.05112877980659, 180, 85.0511287798066]
 
 
 def tile(request, z, x, y):
@@ -45,8 +42,7 @@ def openmaptiles_style(request):
     else:
         with open_mbtiles() as mbtiles:
             metadata = mbtiles.metadata()
-            scheme = metadata.get("scheme", "xyz")
-            bounds = metadata.get("bounds", WORLD_BOUNDS[scheme])
+            bounds = metadata.get("bounds", WORLD_BOUNDS)
             center = metadata.get("center", center_from_bounds(bounds, DEFAULT_ZOOM))
 
     base_url = staticfiles_storage.url("django-tiles-gl")
@@ -100,7 +96,7 @@ def tilejson(request):
 
         # Optional fields
         spec["scheme"] = metadata.get("scheme", "xyz")
-        spec["bounds"] = spec.get("bounds", WORLD_BOUNDS[spec["scheme"]])
+        spec["bounds"] = spec.get("bounds", WORLD_BOUNDS)
         spec["minzoom"] = spec.get("minzoom", DEFAULT_MINZOOM)
         spec["maxzoom"] = spec.get("maxzoom", DEFAULT_MINZOOM)
         spec["center"] = spec.get(
