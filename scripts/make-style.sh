@@ -9,8 +9,6 @@ PROJECT_PATH=`dirname "$PROJECT_PATH"`
 BUILD_PATH="$PROJECT_PATH/build"
 APP_PATH="$PROJECT_PATH/django_tiles_gl"
 
-NODE_PATH="$PROJECT_PATH/node_modules"
-
 STYLE_PATH="$BUILD_PATH/style"
 
 rm -rf "$STYLE_PATH" || true

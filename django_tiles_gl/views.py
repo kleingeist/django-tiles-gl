@@ -49,7 +49,7 @@ def openmaptiles_style(request):
     if not base_url.startswith("http"):
         base_url = request.build_absolute_uri(base_url)
 
-    tilejson_url = request.build_absolute_uri(reverse("tilejson"))
+    tilejson_url = request.build_absolute_uri(reverse("django_tiles_gl:tilejson"))
 
     app_path = Path(__file__).parent
     style_json_path = app_path / "templates" / "django_tiles_gl" / "style.json"
@@ -104,7 +104,9 @@ def tilejson(request):
         )
 
         # Tile defintions
-        tile_url = request.build_absolute_uri(reverse("tile", args=(0, 0, 0)))
+        tile_url = request.build_absolute_uri(
+            reverse("django_tiles_gl:tile", args=(0, 0, 0))
+        )
         tile_url = tile_url.replace("/0/0/0.pbf", "/{z}/{x}/{y}.pbf")
         spec["tiles"] = [tile_url]
 
