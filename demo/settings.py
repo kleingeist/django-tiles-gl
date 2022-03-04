@@ -124,5 +124,5 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MBTILES_DATABASE = BASE_DIR / "berlin.mbtiles"
+MBTILES_DATABASE = BASE_DIR / "demo" / "data" / "berlin.mbtiles"
 MBTILES_CENTER = [13.4, 52.5, 13]
