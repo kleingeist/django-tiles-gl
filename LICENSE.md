@@ -2,7 +2,7 @@
 
 BSD 3-Clause License
 
-Copyright (c) 2022, Johannes Dillmann
+Copyright (c) 2022, Johannes Dillmann. 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -23,7 +23,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ## OpenStreetMap Data
 
 
-Contains data from OpenStreetMap which is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+Contains data from OpenStreetMap which is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. 
+Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
 
 
 

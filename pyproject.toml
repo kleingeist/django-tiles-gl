@@ -2,7 +2,7 @@
 name = "django-tiles-gl"
 version = "0.1.0"
 description = "Integrated Django Vector Tile Server based on mbtiles"
-authors = ["Johannes Dillmann <kleingeist@googlemail.com>"]
+authors = ["Johannes Dillmann <dev@ae5.de>"]
 license = "BSD-3-Clause"
 homepage = "https://github.com/kleingeist/django-tiles-gl"
 repository = "https://github.com/kleingeist/django-tiles-gl"
