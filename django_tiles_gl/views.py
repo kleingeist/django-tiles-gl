@@ -7,6 +7,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
+from django.views.decorators.cache import cache_control
 
 from .mbtiles import MissingTileError, open_mbtiles
 from .utils import center_from_bounds
@@ -16,7 +17,10 @@ DEFAULT_MINZOOM = 7
 DEFAULT_MAXZOOM = 15
 WORLD_BOUNDS = [-180, -85.05112877980659, 180, 85.0511287798066]
 
+MONTH_SECONDS = 60 * 60 * 24 * 30
 
+
+@cache_control(max_age=MONTH_SECONDS)
 def tile(request, z, x, y):
     with (open_mbtiles()) as mbtiles:
         try:
