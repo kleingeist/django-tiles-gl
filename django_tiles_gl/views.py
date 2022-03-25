@@ -59,7 +59,7 @@ def openmaptiles_style(request):
     style["center"] = [center[0], center[1]]
     style["zoom"] = center[2]
     style["sprite"] = base_url + "/sprites/sprite"
-    style["glyphs"] = base_url + "/fonts/{fontstack}/{range}.pbf"
+    style["glyphs"] = base_url + r"/fonts/{fontstack}/{range}.pbf"
     style["sources"] = {"openmaptiles": {"type": "vector", "url": tilejson_url}}
 
     return JsonResponse(style)
@@ -84,6 +84,8 @@ def tilejson(request):
             "description",
             "type",
             "version",
+            # UNSPECIFIED
+            "scheme",
         )
         spec = {key: metadata[key] for key in valid_tilejson_keys if key in metadata}
 
@@ -95,7 +97,7 @@ def tilejson(request):
             )
 
         # Optional fields
-        spec["scheme"] = metadata.get("scheme", "xyz")
+        spec["scheme"] = spec.get("scheme", "xyz")
         spec["bounds"] = spec.get("bounds", WORLD_BOUNDS)
         spec["minzoom"] = spec.get("minzoom", DEFAULT_MINZOOM)
         spec["maxzoom"] = spec.get("maxzoom", DEFAULT_MINZOOM)
@@ -107,7 +109,7 @@ def tilejson(request):
         tile_url = request.build_absolute_uri(
             reverse("django_tiles_gl:tile", args=(0, 0, 0))
         )
-        tile_url = tile_url.replace("/0/0/0.pbf", "/{z}/{x}/{y}.pbf")
+        tile_url = tile_url.replace("/0/0/0.pbf", r"/{z}/{x}/{y}.pbf")
         spec["tiles"] = [tile_url]
 
         # Version defintion
