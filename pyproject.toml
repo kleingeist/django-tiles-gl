@@ -20,7 +20,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.0.2"
+Django = ">=3.2,<4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -30,7 +30,7 @@ autoflake = "^1.4"
 
 [build-system]
 requires = [
-    "poetry-core>=1.0.0", 
+    "poetry-core>=1.0.0",
     # Required dependencies to build with pip from git
     "setuptools",
     "wheel",
