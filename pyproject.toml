@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "django-tiles-gl"
-version = "0.1.1"
+version = "0.2.0"
 description = "Integrated Django Vector Tile Server based on mbtiles"
 readme = "README.md"
-authors = ["Johannes Dillmann <dev@ae5.de>"]
+authors = ["Johannes Dillmann <dev@ae35.de>"]
 license = "BSD-3-Clause"
 homepage = "https://github.com/kleingeist/django-tiles-gl"
 repository = "https://github.com/kleingeist/django-tiles-gl"
