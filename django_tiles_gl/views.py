@@ -25,14 +25,14 @@ def tile(request, z, x, y):
     with (open_mbtiles()) as mbtiles:
         try:
             data = mbtiles.tile(z, x, y)
-            return HttpResponse(
+            response = HttpResponse(
                 content=data,
-                headers={
-                    "Content-Type": "application/x-protobuf",
-                    "Content-Encoding": "gzip",
-                },
                 status=200,
             )
+            response["Content-Type"] = "application/x-protobuf"
+            response["Content-Encoding"] = "gzip"
+
+            return response
 
         except MissingTileError:
             return HttpResponse(
