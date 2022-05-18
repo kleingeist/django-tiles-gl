@@ -49,7 +49,7 @@ def openmaptiles_style(request):
             bounds = metadata.get("bounds", WORLD_BOUNDS)
             center = metadata.get("center", center_from_bounds(bounds, DEFAULT_ZOOM))
 
-    base_url = staticfiles_storage.url("django-tiles-gl")
+    base_url = staticfiles_storage.url("django-tiles-gl/")
     if not base_url.startswith("http"):
         base_url = build_absolute_uri(request, base_url)
 
@@ -62,8 +62,8 @@ def openmaptiles_style(request):
 
     style["center"] = [center[0], center[1]]
     style["zoom"] = center[2]
-    style["sprite"] = base_url + "/sprites/sprite"
-    style["glyphs"] = base_url + r"/fonts/{fontstack}/{range}.pbf"
+    style["sprite"] = base_url + "sprites/sprite"
+    style["glyphs"] = base_url + r"fonts/{fontstack}/{range}.pbf"
     style["sources"] = {"openmaptiles": {"type": "vector", "url": tilejson_url}}
 
     return JsonResponse(style)
