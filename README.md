@@ -41,7 +41,7 @@ See the [`demo`](https://github.com/kleingeist/django-tiles-gl/tree/main/demo) D
   ```python
   MBTILES_CENTER = [13.4, 52.5, 13]   # [longitude, latitude, zoom]
   ```
-- Force absolute urls to use SSL by prefixing them with "https://".
+- Optionally force absolute urls to use SSL by prefixing them with "https://".
   This might be required if you app is running behind a reverse proxy and you
   are not able to set [`SECURE_PROXY_SSL_HEADER`](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-proxy-ssl-header)
   from the SSL enabled proxy server.
