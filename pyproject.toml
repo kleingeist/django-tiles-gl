@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-tiles-gl"
-version = "0.3.4"
+version = "0.3.6"
 description = "Integrated Django Vector Tile Server based on mbtiles"
 readme = "README.md"
 authors = ["Johannes Dillmann <dev@ae35.de>"]
