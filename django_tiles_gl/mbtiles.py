@@ -1,4 +1,5 @@
 import json
+import os
 import sqlite3
 from curses import meta
 
@@ -34,6 +35,9 @@ class MBTiles:
         self._database = database
 
     def connect(self):
+        if not os.path.exists(self._database):
+            raise MBTilesNotFoundError(f"MBTiles database {self._database} does not exist")
+
         self._connection = sqlite3.connect(
             database=self._database,
             timeout=1.0,
