@@ -19,6 +19,6 @@
     "yargs": "^17.3.1"
   },
   "dependencies": {
-    "maplibre-gl": "^2.1.6"
+    "maplibre-gl": "^2.4.0"
   }
 }
